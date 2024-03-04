@@ -1,0 +1,23 @@
+<mvc:View 
+xmlns:tnt="sap.tnt" xmlns:cards="sap.f.cards"
+xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+xmlns:f="sap.f" controllerName="vendorfe.controller.View1"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    
+
+     <FlexBox id="biddingTileflexId" class="biddingTileflex">
+      <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+         header="Nautical" subheader="Create Voyage" press=".onPress1" >
+            <TileContent id="_IDGenTileContent1">
+            <ImageContent id="_IDGenImageContent1" src="./images/voyage.png"></ImageContent>
+            </TileContent>
+        </GenericTile>
+      <GenericTile id="openTileId" class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="SubmitQuatation" subheader="Portal" press="openTile" >
+        <TileContent id="openTile">
+          <NumericContent id="openTileNumericId" value="0" valueColor="Critical" icon="sap-icon://open-folder" withMargin="false"  />
+        </TileContent>
+      </GenericTile>
+      </FlexBox>
+</mvc:View>

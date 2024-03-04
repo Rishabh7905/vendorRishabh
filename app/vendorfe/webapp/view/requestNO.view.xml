@@ -1,0 +1,576 @@
+<mvc:View xmlns:tnt="sap.tnt" xmlns:cards="sap.f.cards" xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form" xmlns:f="sap.f" controllerName="vendorfe.controller.requestNO"
+xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+<Page id="_IDGenPage1" class="page">
+  <headerContent>
+    <Bar id="_IDGenBar1" class="customHeader">
+        <contentLeft>
+            <core:Icon id="_IDGenIcon3"
+                src="sap-icon://nav-back"
+                class="size1"
+                color="#FFFFFF"
+                press="onBackPress"
+            />
+            <core:Icon
+                      id="_IDGenIcon2"
+                      src="sap-icon://home"
+                      class="size1"
+                      color="#FFFFFF"
+                      press="onBackPressHome"
+            />
+            <Image id="_IDGenImage1"
+                  class="size1"
+                src="./images/ignxlogo.png"
+                height="75%"
+            />
+            <Text id="_IDGenText1"
+                class="textBid size1"
+                text="Bidding Controller Portal"
+            />
+        </contentLeft>
+        <contentRight>
+            <core:Icon id="_IDGenIcon4"
+                src="sap-icon://search"
+                class="size1"
+                color="#FFFFFF"
+            >
+                <core:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData7" growFactor="1" />
+                </core:layoutData>
+            </core:Icon>
+            <core:Icon id="_IDGenIcon5"
+                src="sap-icon://SAP-icons-TNT/user"
+                class="size1"
+                color="#FFFFFF"
+            >
+                <core:layoutData>
+                    <FlexItemData id="_IDGenFlexItemData8" growFactor="1" />
+                </core:layoutData>
+            </core:Icon>
+        </contentRight>
+    </Bar>
+  </headerContent>
+
+  <Bar id="_IDGenBar2" >
+    <contentMiddle>
+      <Text id="_IDGenText2" text="Bidding Controller Portal"></Text>
+    </contentMiddle>
+  </Bar>
+
+    <HBox id="_IDGenHBox1" class="">
+ 
+      <Panel id="_IDGenPanel1"  class="panelBoard1 sapUiResponsiveMargin">
+    
+        <Label id="Label1" text="Bid Information for Charter Req"/>
+        <Text id="boTxt1" class="text1 botxt1" text="{bidData>Chartering Req No.}"></Text>
+        <Text id="boTxt" class="text1 botxt1 vgNoText" text="{bidData>Chartering Req No.}"></Text>
+        <Label id="_IDGenLabel1" class="vgNoText" text="Voyage"  />      
+        <Text id="boTxt2" class="botxt2" text="Bid From: {bidData>Bid Start Date} {bidData>Bid Start Time}"/>
+        <Text id="boTxt3" class="botxt3 text1 " text="Bid To: {bidData>Bid End Date} {bidData>Bid End Time}"/>
+      
+      </Panel>
+    
+      <Panel id="_IDGenPanel2"  class=" panelBoard2 sapUiResponsiveMargin"  >
+    
+        <Label id="Label01" text="" class="botxt1" />
+        <Text id="boTxt5" class="text1 " text=""/>
+        <Text id="boTxt6" class="text1 botxt1 companyText "  text=""/>
+        <Label id="boTxt7" class="text1 "  text=""/>
+      
+      </Panel>
+ 
+    </HBox>
+   
+    <Panel id="_IDGenPanel3" class="panelBoard">
+      <Bar id="bidObjBar" >
+        <contentLeft>
+          <Label id="Label3" text="Vendor List for Charter Request-"/>
+          <Text id="boTxt01" text="{bidData>Chartering Req No.}"></Text>
+        </contentLeft>
+        <contentMiddle>
+          <Label id="Label10"  text="Current Quote:"/>
+          <Input id="QuoteValue" value="" width="50%"></Input>
+        </contentMiddle>
+        <contentRight>
+          <Label id="Label2"  text="Quote Price:"/>
+          <Input id="Input1" value="{biddata>Original Bid}" width="50%"></Input>
+          <Button id="Button" text="Submit" type="Emphasized" icon="none"></Button>
+        </contentRight>
+      </Bar>
+    
+    
+  
+      <Table id="table" items="{bidData>/bVendorData}" growing="true" growingThreshold="10" selectionChange="BidObjData" itemPress="itemPressHandler">
+            <columns>
+            <Column id="bVheading1" >
+              <Text id="text1" text="Vendors"/>
+            </Column>
+            <Column id="bVheading2" >
+              <Text id="text2" text="Technical Score"/>
+            </Column>
+            <Column id="bVheading3" >
+              <Text id="text3" text="Commercial score"/>
+            </Column>
+            <Column id="bVheading4" >
+              <Text id="text4" text="Orignal Bid"/>
+            </Column>
+            <Column id="bVheading5" >
+              <Text id="text5" text="Current Bid"/>
+            </Column>
+            
+            </columns>
+        <items >
+          <ColumnListItem id="coloumnlist"  type="Navigation" press="Testing">
+              <cells>
+                <Text id="bfield1" text = "{bidData>Vendors}"/>
+                <Text id="bfield2" text = "{bidData>Technical Score}"/>
+                <Text id="bfield3" text ="{bidData>Commercial score}"/>
+                <Text id="bfield4" text ="{bidData>Orignal Bid}"/>
+                <Text id="bfield5" text ="{bidData>Current Bid}"/>
+                
+              </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+      
+          <Button id="Button7" text="Voyage Details" press="handleNav" icon="sap-icon://inspection">
+            <layoutData>
+              <FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+            </layoutData>
+            <customData>
+              <core:CustomData key="target" value="p1" />
+            </customData>
+          </Button>
+
+          <!-- vessel plan/actual plan button -->
+          <Button id="_IDGenButton6"
+            text="Submit Vessel Details"
+            press="handleNav">
+            <layoutData>
+              <FlexItemData id="_IDGenFlexItemData2" growFactor="1" />
+            </layoutData>
+            <customData>
+              <core:CustomData
+                key="target"
+                value="p2" />
+            </customData>
+          </Button>
+
+                <!-- bid details button -->
+          <Button id="_IDGenButton7"
+            text=" Submit Bid "
+            press="handleNav"
+                    icon="sap-icon://activity-assigned-to-goal">
+            <layoutData>
+              <FlexItemData id="_IDGenFlexItemData3" growFactor="1" />
+            </layoutData>
+            <customData>
+              <core:CustomData
+                key="target"
+                value="p3" />
+            </customData>
+          </Button>
+            
+
+
+
+             <HBox id="_IDGenHBox">
+                    
+            <Select id="animationSelect" class="animation">
+                <core:Item id="_IDGenItem2" text="Slide animation" key="slide" />
+                <core:Item id="_IDGenItem3" text="Base slide animation" key="baseSlide" />
+                <core:Item id="_IDGenItem4" text="Fade animation" key="fade" />
+                <core:Item id="_IDGenItem5" text="Flip animation" key="flip" />
+                <core:Item id="_IDGenItem6" text="Show animation" key="show" />
+                    <layoutData>
+                            <FlexItemData id="_IDGenFlexItemData6" growFactor="1" />
+                    </layoutData>
+             </Select>
+                    
+        </HBox>
+
+        <NavContainer
+                navigationFinished="onNavigationFinished"
+                id="navCon"
+                height="auto"
+                
+        >
+
+          
+
+          <Panel id="p1" class="voyagePanel" >
+
+            <Table id="_IDGenTable9"   fixedLayout="false" >
+                            <columns  >
+                               
+                                <Column id="_IDColum1" >
+                                    <Label id="_IDGel151" text="LegID" ></Label>
+                                </Column>
+                                <Column id="_IDGenln60"  >
+                                    <Label id="_IDGLal15" text="Port Code"  ></Label>
+                                </Column>
+                                
+                                <Column id="_IDGenColn60" >
+                                    <Label id="_IDGenLel150" text="Port name" ></Label>
+                                </Column>
+                               
+                                <Column id="_IDGenColn80"  >
+                                    <Label id="_IDGenLal170" text="Cargo Size" ></Label>
+                                </Column>
+                               
+                                <Column id="_IDGenColumn120">
+                                    <Label id="_IDGenLabel210" text="Unit" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn130" >
+                                    <Label id="_IDGenLabel220" text="Distance"  ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn140" >
+                                    <Label id="_IDGenLabel230" text="Arrival Data" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn150" >
+                                    <Label id="_IDGenLabel240" text="Arrival Time" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn160" >
+                                    <Label id="_IDGenLabel250" text="Departure Date" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn170"  >
+                                    <Label id="_IDGenLabel260" text="Departure Time" ></Label>
+                                </Column>
+                                
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem40">
+                                    <cells>
+                                        <CheckBox id="_IDGenCheckBox10"></CheckBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+            </Panel>
+
+<!-- 
+             <Panel id="p2" class="voyagePanel"  > 
+                        
+                        <ScrollContainer id="_IDGenScrollContainer2" horizontal="true"  vertical="false" class="scrollContainer">
+                        <Text id="_IDGenText3" text="Plan Info Details" class="vgheading"/>
+                        <HBox id="_IDHBox11" class="planOperations" >
+                        <FlexBox id="_IDGenFlexBox1" alignContent="Stretch" >
+                        <Button id="_IDGenButton10" icon="sap-icon://sys-minus"/>
+                        <FlexBox id="_IDGenFlexBox2" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel7" text="Plan Speed:" required="true"/>
+                        <Input id="_IDGenInput4" width="70px" class="inputfields"></Input>
+                        <Label id="_IDGenLabel8" text="NM/Hour"/>
+                        </FlexBox>
+                        </FlexBox>
+                        <FlexBox id="_IDGenFlexBox3" alignContent="Stretch" class="infoinputs">
+                            <Label id="_IDGenLabel9" text="Frieght Cost:"/>
+                            <Input id="_IDGenInput5" width="70px" class="inputfields"></Input>
+                        <FlexBox id="_IDGenFlexBox4" alignContent="Stretch" class="infoinputs">
+                            <Label id="_IDGenLabel10" text="Unit:"/>
+                            <Select id="_IDGenSelect2" width="150px">
+                            </Select>
+                        </FlexBox>
+                        <FlexBox id="_IDGenFlexBox5" alignContent="Stretch" class="infoinputs">
+                            <Label id="_IDGenLabel11" text="Total Cost:"/>
+                            <Input id="_IDGenInput6" width="80px" class="inputfields"></Input>
+                        </FlexBox>                          
+                        <FlexBox id="_IDGenFlexBox6" alignContent="Stretch" class="infoinputs">
+                            <Label id="_IDGenLabel12" text="Total Dist:"/>
+                            <Input id="_IDGenInput7" width="60px" class="inputfields"></Input>
+                        </FlexBox>                          
+                        <FlexBox id="_IDGenFlexBox7" alignContent="Stretch" class="infoinputs">
+                            <Label id="_IDGenLabel13" text="Total Days:"/>
+                            <Input id="_IDGenInput8" width="50px" class="inputfields"></Input>
+                        </FlexBox>                          
+                        </FlexBox>
+                        </HBox>
+                        <Table id="_IDGenTable10"   fixedLayout="false" >
+                            <columns  >
+                               
+                                <Column id="_IDColum" >
+                                    <Label id="_IDGel15" text="LegID" ></Label>
+                                </Column>
+                                <Column id="_IDGenln6"  >
+                                    <Label id="_IDGLal150" text="Port Code"  ></Label>
+                                </Column>
+                                
+ 
+                                <Column id="_IDGenColn6" >
+                                    <Label id="_IDGenLel15" text="Port name" ></Label>
+                                </Column>
+                               
+                               
+                                <Column id="_IDGenColumn11"  >
+                                    <Label id="_IDGenLabel20" text="Cargo Size" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn12">
+                                    <Label id="_IDGenLabel21" text="Unit" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn13" >
+                                    <Label id="_IDGenLabel22" text="Distance"  ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn14" >
+                                    <Label id="_IDGenLabel23" text="Arrival Date" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn15" >
+                                    <Label id="_IDGenLabel24" text="Arrival Time" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn16" >
+                                    <Label id="_IDGenLabel25" text="Departure Date" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn17"  >
+                                    <Label id="_IDGenLabel26" text="Departure TIme" ></Label>
+                                </Column>
+                                
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem4">
+                                    <cells>
+                                        <CheckBox id="_IDGenCheckBox1"></CheckBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                        </ScrollContainer>
+                 <ScrollContainer id="_IDGenScrollContainer3" horizontal="true"  vertical="false" class="scrollContainer">
+                         
+                    <Text id="_IDGenText4" text="Actual Info Details" class="heading"/> -->
+                    <!-- for plan info header buttons  -->
+                    <!-- <HBox id="_IDHBox12" class="planOperations ">
+                           
+                    <FlexBox id="_IDGenFlexBox8" alignContent="Stretch">
+                    <Button id="_IDGenBton11" icon="sap-icon://sys-minus"/>
+                    <FlexBox id="_IDGenFlexBox9" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel28" text="Actual Speed:"/>
+                        <Input id="_IDGenInput9" width="70px" class="inputfields"></Input>
+                        <Label id="_IDGenLabel29" text="NM/Hour"/>
+                    </FlexBox>
+                    <FlexBox id="_IDGenFlexBox10" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel30" text="Frieght Cost:"/>
+                        <Input id="_IDGenInput10" width="70px" class="inputfields"></Input>
+                    </FlexBox>
+                    <FlexBox id="_IDGenFlexBox11" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel31" text="Unit:"/>
+                        <Select id="_IDGenSelect3" width="150px">
+                        </Select>
+                    </FlexBox>
+                    <FlexBox id="_IDGenFlexBox12" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel32" text="Total Cost:"/>
+                        <Input id="_IDGenput11" width="80px" class="inputfields"></Input>
+                    </FlexBox>                          
+                    <FlexBox id="_IDGenFlexBox13" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel33" text="Total Dist:"/>
+                        <Input id="_IDGenInput12" width="60px" class="inputfields"></Input>
+                    </FlexBox>                          
+                    <FlexBox id="_IDGenFlexBox14" alignContent="Stretch" class="infoinputs">
+                        <Label id="_IDGenLabel34" text="Total Days:"/>
+                        <Input id="_IDGenInput13" width="50px" class="inputfields"></Input>
+                    </FlexBox>                          
+                </FlexBox>
+                    </HBox> -->
+ 
+                    <!-- <Table id="_IDGenTable1"   fixedLayout="false" >
+                            <columns  >
+                               
+                                <Column id="_IDColumn6" >
+                                    <Label id="_IDGebel15" text="LegID" ></Label>
+                                </Column>
+                                <Column id="_IDGenlumn6"  >
+                                    <Label id="_IDGLabel15" text="Port Cost"  ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn7"  >
+                                    <Label id="_IDGenLabel16" text="Events" ></Label>
+                                </Column>
+ 
+                                <Column id="_IDGenColumn6" >
+                                    <Label id="_IDGenLabel15" text="Port name" ></Label>
+                                </Column>
+                               
+                                <Column id="_IDGenColumn8"  >
+                                    <Label id="_IDGenLabel17" text="Other Cost" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn9"  >
+                                    <Label id="_IDGenLabel18" text="Frieght Cost" ></Label>
+                                </Column>
+                                <Column id="_IDGenColumn10"  >
+                                    <Label id="_IDGenLabel19" text="Total Cost" ></Label>
+                                </Column>
+                                <Column id="_IDGenClumn11"  >
+                                    <Label id="_IDGnLabel20" text="Cargo Size" ></Label>
+                                </Column>
+                                <Column id="_IDGenCoumn12">
+                                    <Label id="_IDGnLabel21" text="Unit" ></Label>
+                                </Column>
+                                <Column id="_IDGenCoumn13" >
+                                    <Label id="_IDGenabel22" text="Distance"  ></Label>
+                                </Column>
+                                <Column id="_IDGenCoumn14" >
+                                    <Label id="_IDGeLabel23" text="UOM" ></Label>
+                                </Column>
+                                <Column id="_IDGenCoumn15" >
+                                    <Label id="_IDGenabel24" text="Port Days" ></Label>
+                                </Column>
+                                <Column id="_IDGenClumn16" >
+                                    <Label id="_IDGnLabel25" text="Weather" ></Label>
+                                </Column>
+                                <Column id="_IDGenClumn17"  >
+                                    <Label id="_IDGnLabel26" text="Sea Days" ></Label>
+                                </Column>
+                                <Column id="_IDGenColmn18"  >
+                                    <Label id="_IDGenLbel27" text="ETA" ></Label>
+                                </Column>
+                                <Column id="_IDGnColn18"  >
+                                    <Label id="_IDenLel27" text="Time" ></Label>
+                                </Column>
+                                <Column id="_IDl18"  >
+                                    <Label id="_nel27" text="ETD" ></Label>
+                                </Column>
+                                <Column id="Genoln18"  >
+                                    <Label id="GeLel27" text="Time" ></Label>
+                                </Column>
+                                <Column id="_on18"  >
+                                    <Label id="_Il27" text="Status" ></Label>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenCoumnListItem4">
+                                    <cells>
+                                        <CheckBox id="_IDGenChecBox1"></CheckBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table> -->
+                        <!-- </ScrollContainer> -->
+<!--  
+            </Panel> -->
+
+
+
+            <Panel id="p3"  class="voyagePanel">
+                <HBox id="HBox1" width="100%">
+                    <FlexBox id="Flex1" width="50%" class="flexbidtable">
+                        <Table  id="vesselRefDetails1" class="table" mode="SingleSelectLeft"
+                         headerText="Technical Bidding Details">
+                            <columns>
+                                <Column id="Column32" width="50%">
+                                    <Label id="Label42" text="Heads" textAlign="Begin"></Label>
+                                </Column>
+                                <Column id="nColumn33" width="10%">
+                                    <Label id="Label43" text="Relevance"></Label>
+                                </Column>
+                                <Column id="_IDGolumn34" width="40%">
+                                    <Label id="Label44"  text="Possible Value"></Label>
+                                </Column>              
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem3">
+                                    <cells>
+                                        <Text id="_IDnText11" text="LAST CLEANING DATE 2" />
+                                        <CheckBox id="checkbox"></CheckBox>
+                                        <Input id="_IDnText12" value="" showValueHelp="true" valueHelpRequest="showValueHelpDialogLastCleaning"/>
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenColumnLstItem3">
+                                    <cells>
+                                        <Text id="_IDnTet11" text="CLASS OF VESSEL" />
+                                        <CheckBox id="checbox"></CheckBox>
+                                         <Input id="_IDnTxt12" value="" showValueHelp="true" valueHelpRequest="showValueHelpDialogClassMaster"/>
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenCoumnLstItem3">
+                                    <cells>
+                                        <Text id="_IDTet11" text="COUNTRY OF ORIGIN" />
+                                        <CheckBox id="chebox"></CheckBox>
+                                        <Input id="_IDnet12" value=""/>
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenCmnLstItem3">
+                                    <cells>
+                                        <Text id="_IDT11" text="LAST PORT OF CALL" />
+                                        <CheckBox id="chbox1"></CheckBox>
+                                        <Input id="_IDt12" value=""/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </FlexBox >
+                    <FlexBox id="Flex2" width="50%" class="flexbidtable">
+                        <Table  id="commercialbiddingdetails" class="table"
+                         headerText="Commercial Bidding Details" mode="SingleSelectLeft" >
+                            <columns>
+                                <Column id="_IDGenColumn36" width="50%" >
+                                    <Label id="Label46" text="Heads"></Label>
+                                </Column>
+                                <Column id="_IDGenColumn37" width="10%">
+                                    <Label id="Label47" text="Relevance"></Label>
+                                </Column>
+                                <Column id="_IDGenColumn38" width="40%">
+                                    <Label id="Label48"  text="Currency"></Label>
+                                </Column>              
+                            </columns>
+                            <items>
+                                <ColumnListItem id="_IDGenColumnListItem2">
+                                    <cells>
+                                    <Text id="in1" text="DEMURRAGE" ></Text>
+                                    <CheckBox id="checkbox1" select="onCheckBoxSelect"></CheckBox>
+                                    <Input id="in2" value="" showValueHelp="true" valueHelpRequest="showValueHelpDialogCurr"/>
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenClumnListItem2">
+                                    <cells>
+                                    <Text id="in4" text="FREIGHT" ></Text>
+                                    <CheckBox id="checkox1" select="onCheckBoxSelect"></CheckBox>
+                                    <Input id="in3" value="" showValueHelp="true" valueHelpRequest="showValueHelpDialogCurr"/>
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenumnListItem2">
+                                    <cells>
+                                    <Text id="i4" text="" ></Text>
+                                    <CheckBox id="chckox1" select="onCheckBoxSelect"></CheckBox>
+                                    <Input id="i3" value="" />
+                                    </cells>
+                                </ColumnListItem>
+                                <ColumnListItem id="_IDGenuListItem2">
+                                    <cells>
+                                    <Text id="ids4" text="" ></Text>
+                                    <CheckBox id="chkox1" select="onCheckBoxSelect"></CheckBox>
+                                    <Input id="ids3" value="" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>  
+                        </Table>
+                    </FlexBox>
+                </HBox>
+       
+                <HBox id="HBox2" width="100%">
+                    <FlexBox id="_IDGenFlexBox1" width="10%" class="flexbtn">
+                        <Button id="add" icon="sap-icon://sys-add" press=".onAddRow1" type="Reject"></Button>
+                        <Button id="minus" icon="sap-icon://sys-minus" press=".onDeleteRow1" type="Reject"></Button>
+                    </FlexBox>
+                     <FlexBox id="_IDGenFlexBox2" width="20%">
+                        <Button id="saveprofileId" type="Reject" text="Save Profile"></Button>
+                    </FlexBox>
+                    <FlexBox id="_IDGenFlexBox3" width="20%">
+                        <Label id="_IDGenLabel49" text="Select Profile:"/>
+                        <Select id="_IDGenSelect4" width="120px">
+                            <items>
+                                <core:Item id="_IDGenItem7" ></core:Item>
+                            </items>
+                        </Select>
+                    </FlexBox>
+                    <FlexBox id="_IDGenFlexBox4" width="30%" >
+                        <Button id="_IDGenBuon13" icon="sap-icon://sys-add" press=".onAddRow2" type="Reject"></Button>
+                        <Button id="_IDGenBuon14" icon="sap-icon://sys-minus" press=".onDeleteRow2" type="Reject"></Button>
+                    </FlexBox>
+                </HBox>
+
+            </Panel>
+          
+</NavContainer>
+
+    </Panel>
+</Page>
+   
+</mvc:View>
+ 
