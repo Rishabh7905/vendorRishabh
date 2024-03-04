@@ -47,7 +47,7 @@ sap.ui.define([
                 TechnicalScore = oEventData[1].mProperties.text
                 console.log(vendorName);
                 // console.log(CommercialRank);
-                // console.log(Quote);
+                // console.(logQuote);
                 this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
                 this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
                 this.getView().byId("QuoteValue").setValue(Quote);
