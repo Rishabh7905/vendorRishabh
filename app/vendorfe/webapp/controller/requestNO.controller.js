@@ -19,10 +19,10 @@ sap.ui.define([
             onInit: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.getRoute("RouterequestNO").attachPatternMatched(this.onObjectMatched, this);
-                this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
-                this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
-                this.getView().byId("boTxt6").setText(vendorName);
-                this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
+                // this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
+                // this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
+                // this.getView().byId("boTxt6").setText(vendorName);
+                // this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
 
             },
             onObjectMatched(oEvent) {
@@ -36,25 +36,25 @@ sap.ui.define([
             BidObjData:function(){
                 console.log("hello");
             },
-            itemPressHandler:function(oEvent){
-                // console.log(oEvent.getParameter("listItem"));
-                var oEventData=oEvent.getParameter("listItem").mAggregations.cells;
-                console.log(oEventData);
-                vendorName=oEventData[0].mProperties.text
+            // itemPressHandler:function(oEvent){
+            //     // console.log(oEvent.getParameter("listItem"));
+            //     var oEventData=oEvent.getParameter("listItem").mAggregations.cells;
+            //     console.log(oEventData);
+            //     vendorName=oEventData[0].mProperties.text
 
-                CommercialRank = oEventData[2].mProperties.text;
-                Quote = oEventData[4].mProperties.text;
-                TechnicalScore = oEventData[1].mProperties.text
-                console.log(vendorName);
-                // console.log(CommercialRank);
-                // console.(logQuote);
-                this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
-                this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
-                this.getView().byId("QuoteValue").setValue(Quote);
-                this.getView().byId("boTxt6").setText(vendorName);
-                this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
+            //     CommercialRank = oEventData[2].mProperties.text;
+            //     Quote = oEventData[4].mProperties.text;
+            //     TechnicalScore = oEventData[1].mProperties.text
+            //     console.log(vendorName);
+            //     // console.log(CommercialRank);
+            //     // console.(logQuote);
+            //     this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
+            //     this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
+            //     this.getView().byId("QuoteValue").setValue(Quote);
+            //     this.getView().byId("boTxt6").setText(vendorName);
+            //     this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
 
-            },
+            // },
             onBackPress: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("RouteBidCont");

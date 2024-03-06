@@ -1,18 +1,15 @@
-/* Enter your custom styles here */
 
-
-
+ 
 /************************************** Bidding controller page ******************************************/
 .compareIcon{
     
     margin-top: 30%;
 }
 .biddingTileflex{
-    margin-left: 300px;
-    margin-top: 30px;
+    margin-left:300px ;
+    margin-top: 45px;
+    justify-content: space-around;
     justify-content: center;
-    justify-content:  flex-start;
-
 }
  
 .ongoingPanel{
@@ -67,3 +64,79 @@
 .vgNoText{
     float: right;
 }
+/************************************ For Master DashBoard Screen **********************************************/
+.masterFlexBox{
+    margin-bottom: 1%;
+}
+.mastDash{
+    padding: 5%;
+}
+/**************************************** Nautical Dashboard Screen *********************************/
+/* .dashboardPanel{
+    margin: 3%;
+} */
+
+.headerTxt{
+    font-weight: bold;
+}
+.dashboardBtn{
+    margin-top: 15%;
+    margin-left: 23%;
+}
+.nauticalimg{
+    margin-top: 5%;
+    margin-left: 10%;
+    position: fixed;
+}
+ 
+
+/************************************** Transaction data Dashboard  **************************************/
+.iconBar{
+    position: fixed;
+    width: 100%;
+  }
+/*************************************Transaction Capture Voyage Plan Screen***********************************/
+.animation{
+    display: none;
+}
+/* Voyage Vessel Details */
+.vgheading{
+    margin: 10px;
+    padding: 5px;
+    font-size: medium;
+    text-align: center;
+    width: 100%;
+}
+.vdHeaderLayout{
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    
+}
+ 
+.table{
+    margin-left: 2%;
+    border: 1px solid rgb(221, 217, 217);
+    margin-right:5% ;
+
+}
+.table1{
+    margin-right: 15%;
+    border: 1px solid rgb(221, 217, 217);
+}
+ 
+.vdsection{
+   margin-left: 8rem;
+}
+.vdsection2{
+    margin-left: 7.4rem;
+}
+.voyagePanel{
+    background-color: white;
+    margin: 1%;
+}
+.vbox1{
+    flex-direction: column;
+    justify-content: space-around;
+}
+ 

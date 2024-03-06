@@ -24,24 +24,24 @@ sap.ui.define([
                 oRouter.navTo("RouteView1");
             },
 
-            itemPressHandler:function(oEvent){
-                // console.log(oEvent.getParameter("listItem"));
-                var oEventData=oEvent.getParameter("listItem").mAggregations.cells;
-                console.log(oEventData);
-                vendorName=oEventData[0].mProperties.text
+            // itemPressHandler:function(oEvent){
+            //     // console.log(oEvent.getParameter("listItem"));
+            //     var oEventData=oEvent.getParameter("listItem").mAggregations.cells;
+            //     console.log(oEventData);
+            //     vendorName=oEventData[0].mProperties.text
 
-                CommercialRank = oEventData[2].mProperties.text;
-                Quote = oEventData[4].mProperties.text;
-                TechnicalScore = oEventData[1].mProperties.text
-                console.log(vendorName);
+            //     CommercialRank = oEventData[2].mProperties.text;
+            //     Quote = oEventData[4].mProperties.text;
+            //     TechnicalScore = oEventData[1].mProperties.text
+            //     console.log(vendorName);
                
-                this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
-                this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
-                this.getView().byId("QuoteValue").setValue(Quote);
-                this.getView().byId("boTxt6").setText(vendorName);
-                this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
+            //     this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
+            //     this.getView().byId("boTxt5").setText(`Quote: ${Quote}`);
+            //     this.getView().byId("QuoteValue").setValue(Quote);
+            //     this.getView().byId("boTxt6").setText(vendorName);
+            //     this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
 
-            },
+            // },
             
 
             onPressBidTableData(oEvent) {

@@ -7,7 +7,7 @@ xmlns:f="sap.f" controllerName="vendorfe.controller.View1"
     xmlns="sap.m">
     
 
-     <FlexBox id="biddingTileflexId" class="biddingTileflex">
+     <FlexBox id="biddingTileflexId" class="tileFlex">
       <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
          header="Nautical" subheader="Create Voyage" press=".onPress1" >
             <TileContent id="_IDGenTileContent1">
