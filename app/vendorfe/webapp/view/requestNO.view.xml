@@ -8,14 +8,14 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
             <core:Icon id="_IDGenIcon3"
                 src="sap-icon://nav-back"
                 class="size1"
-                color="#FFFFFF"
+              
                 press="onBackPress"
             />
             <core:Icon
                       id="_IDGenIcon2"
                       src="sap-icon://home"
                       class="size1"
-                      color="#FFFFFF"
+                    
                       press="onBackPressHome"
             />
             <Image id="_IDGenImage1"
@@ -32,7 +32,7 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
             <core:Icon id="_IDGenIcon4"
                 src="sap-icon://search"
                 class="size1"
-                color="#FFFFFF"
+               
             >
                 <core:layoutData>
                     <FlexItemData id="_IDGenFlexItemData7" growFactor="1" />
@@ -41,7 +41,7 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
             <core:Icon id="_IDGenIcon5"
                 src="sap-icon://SAP-icons-TNT/user"
                 class="size1"
-                color="#FFFFFF"
+              
             >
                 <core:layoutData>
                     <FlexItemData id="_IDGenFlexItemData8" growFactor="1" />
@@ -57,72 +57,52 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
     </contentMiddle>
   </Bar>
   
+<VBox id="_IDGenVBox5" class="table1" width="100%">
 
-  
-
-
-<VBox class="table1" width="100%">
-
- <Text id="_IDGenText11" class="vgheading" text="Voyage Details" textAlign="Begin" />
+ <Text id="_IDGenText11" class="vgheading" text=" Details For Charter:{bidData>Chartering Req No.}" textAlign="Begin" />
  
    <HBox id="_IDGenHBox1" class="vdHeaderLayout" >
-
- 
-               
+           
                 <VBox id="_IDGenVBox2" alignItems="End" >
                 <HBox id="_IDGenHBox4">
                 <Label id="Label3" text="Voyage Type:"/>
-                <!-- <Select
-                       id="Select2"
-                        width ="200px"
-                        forceSelection="false"
-               
-                        items="{
-                            path: '/VOYTYP'
-                        }">
-                    <core:Item  id="_Item2" key="{VOYCD}" text="{VOYDES}" />
-                </Select> -->
-                <Text text=""></Text>
+                
+                <Text id="_IDGenText3" text="{bidData>Chartering Req No.}"></Text>
                 </HBox>
                 <HBox id="_IDGenHBox5">
                 <Label id="_Label4" text="Vessel Type:"/>
-                <!-- <Select id="Select3" width="200px" forceSelection="false"
-           
-                    items="{
-                        path: '/CARTYP'
-                    }"> -->
-                    <Text text=""></Text>
-                    <!-- <core:Item  id="_Item3" key="{CARCD}" text="{CARDES}" />
-                </Select> -->
+               
+                    <Text id="_IDGenText4" text=""></Text>
+                   
                 </HBox>
                 </VBox>
                 <VBox id="_IDGenVBox3" alignItems="End" >
                 <HBox id="_IDGenHBox6">
                 <Label id="Label5" text="Bid Start:"/>
-                <Text text=""></Text>
+                <Text id="_IDGenText5" text="{bidData>Bid Start Date}"></Text>
                 </HBox>
  
                 <HBox id="_IDGenHBox7">
                 <Label id="Label6" text="Bid End:" />
-               <Text text=""></Text>
+               <Text id="_IDGenText6" text="{bidData>Bid End Date}"></Text>
                 </HBox>
                 </VBox>
                 <VBox id="_IDGenVBox4" alignItems="End"  class="sapUiLargeMarginEnd">
                 <HBox id="_IDGenHBox8" class="sapUiLargeMarginEnd" >
                 <Label id="Label7" text="Biding Type:"/>
-               <Text text=""></Text>
+               <Text id="_IDGenText7" text="{bidData>Status}"></Text>
                 </HBox>
  
                 <HBox id="_IDGenHBox9" class="sapUiLargeMarginEnd" >
                 <Label id="Label8" text="currency:"/>
-               <Text text=""></Text>
+               <Text id="_IDGenText8" text=""></Text>
                 </HBox>
                 </VBox>
             </HBox>
   </VBox>
-     <IconTabBar >
+     <IconTabBar id="_IDGenIconTabBar1" >
    <items>
-    <IconTabFilter text="Voyage Details" >
+    <IconTabFilter id="_IDGenIconTabFilter1" text="Voyage Details" >
       <Table id="_IDGenTable9"   fixedLayout="false" >
                             <columns  >
                                
@@ -170,7 +150,7 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
                             </items>
                         </Table>
     </IconTabFilter>
-    <IconTabFilter text="Submit Vessel Details">
+    <IconTabFilter id="_IDGenIconTabFilter2" text="Submit Vessel Details">
       
                        <form:SimpleForm id="_IDGenSimpleForm1" editable="true">
                        <Label id="_IDGenLabel2" text="Vessel Name"></Label>
@@ -180,7 +160,7 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
                        </form:SimpleForm>
                        
     </IconTabFilter>
-    <IconTabFilter text="Submit Bid ">
+    <IconTabFilter id="_IDGenIconTabFilter3" text="Submit Bid ">
       <HBox id="HBox1" class="sapUiLargeMarginBegin">
                     <FlexBox id="Flex1" width="80%" class="flexbidtable">
                         <Table  id="vesselRefDetails1" class="table" mode="SingleSelectLeft"
@@ -249,45 +229,14 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
                      <Input id="_IDGenInput4" value="" width="150px"></Input>
                      <Label id="_IDGenLabel6" text=""></Label>
                      <Button id="_IDGenButton8" text="Submit Details" width="150px" type="Success"  class="sapUiLargeMarginBegin"></Button>
-                    </form:SimpleForm>
-                
-              
-                      
-                    </FlexBox>
-                    
-                </HBox>
-       
-                <HBox id="HBox2" width="100%">
-                    <FlexBox id="_IDGenFlexBox1" width="10%" class="flexbtn">
-                        <Button id="add" icon="sap-icon://sys-add" press=".onAddRow1" type="Reject"></Button>
-                        <Button id="minus" icon="sap-icon://sys-minus" press=".onDeleteRow1" type="Reject"></Button>
-                    </FlexBox>
-                     <FlexBox id="_IDGenFlexBox2" width="20%">
-                        <Button id="saveprofileId" type="Reject" text="Save Profile"></Button>
-                    </FlexBox>
-                    <FlexBox id="_IDGenFlexBox3" width="20%">
-                        <Label id="_IDGenLabel49" text="Select Profile:"/>
-                        <Select id="_IDGenSelect4" width="120px">
-                            <items>
-                                <core:Item id="_IDGenItem7" ></core:Item>
-                            </items>
-                        </Select>
-                    </FlexBox>
-                    <FlexBox id="_IDGenFlexBox4" width="30%" >
-                        <Button id="_IDGenBuon13" icon="sap-icon://sys-add" press=".onAddRow2" type="Reject"></Button>
-                        <Button id="_IDGenBuon14" icon="sap-icon://sys-minus" press=".onDeleteRow2" type="Reject"></Button>
+                    </form:SimpleForm>        
                     </FlexBox>
                 </HBox>
-
     </IconTabFilter>
    
    </items>
   </IconTabBar>  
-
-
-
-            <HBox id="_IDGenHBox">
-                    
+            <HBox id="_IDGenHBox">   
             <Select id="animationSelect" class="animation">
                 <core:Item id="_IDGenItem2" text="Slide animation" key="slide" />
                 <core:Item id="_IDGenItem3" text="Base slide animation" key="baseSlide" />
@@ -297,35 +246,18 @@ xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 	>
                     <layoutData>
                             <FlexItemData id="_IDGenFlexItemData6" growFactor="1" />
                     </layoutData>
-             </Select>
-                    
+             </Select>        
         </HBox>
          <NavContainer
                 navigationFinished="onNavigationFinished"
                 id="navCon"
-                height="auto"
-                
-        >
+                height="auto">
         <Panel id="p1" class="voyagePanel" >
-
-          
             </Panel>
-
-
-           
             <Panel id="p2" class="voyagePanel"  > 
-                        
-                        
-                
             </Panel>
-
-
-
             <Panel id="p3"  class="voyagePanel">
-                
-
             </Panel>
-          
 </NavContainer>
 </Page>
 </mvc:View>

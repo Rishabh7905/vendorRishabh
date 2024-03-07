@@ -1,5 +1,12 @@
-
- 
+.customHeader{
+    background-color: black;
+}
+.textBid{
+    color: white;
+}
+.size1{
+    color: white
+} 
 /************************************** Bidding controller page ******************************************/
 .compareIcon{
     

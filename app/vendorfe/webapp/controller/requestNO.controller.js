@@ -23,7 +23,7 @@ sap.ui.define([
                 // this.getView().byId("Label01").setText(`Leading Commercial Rank: (${CommercialRank})`);
                 // this.getView().byId("boTxt6").setText(vendorName);
                 // this.getView().byId("boTxt7").setText(`Technical Score: ${TechnicalScore}`);
-
+                
             },
             onObjectMatched(oEvent) {
                 this.getView().bindElement({
@@ -57,11 +57,11 @@ sap.ui.define([
             // },
             onBackPress: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("RouteBidCont");
+                oRouter.navTo("RouteSubmitQuatation");
             },
             onBackPressHome: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("RouteHome");
+                oRouter.navTo("RouteView1");
             },
             handleNav: function(evt) {
                 var navCon = this.byId("navCon");
